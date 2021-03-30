@@ -1,14 +1,28 @@
 import {useState, useEffect} from 'react';
 import {heroData} from '../data/heroes';
-import HeroCardComponent from '../pages/HeroCard';
+import HeroCardComponent from '../components/HeroCard';
 
 const DashboardPage = () => {
-    const [heroes, setHeroes] = useState(heroData);
+    const [heroes, setHeroes] = useState([]);
+    const [alert,setAlert] = useState(false);
     useEffect(() => {
-        let featured = heroData.filter(h => h.featured === true); 
-        console.log('foundhero', featured);
+        let featured = heroData.filter(hero => hero.featured); 
+        
         setHeroes(featured);
-    }, []);
+    }, [alert]);
+    const updateFeatured = heroId => {
+        // first find the hero from heroData by heroId
+        let foundHero = heroData.find(hero => hero.id === +heroId);
+    
+        // updated foundHero.featured to be opposite of its current value
+        foundHero.featured = !foundHero.featured;
+    
+        setAlert(true);
+        setTimeout(() => {
+          setAlert(false);
+        }, 2000);
+        console.log(foundHero);
+      };
     
     return(
         <div id='DashboardPage'>
@@ -18,7 +32,17 @@ const DashboardPage = () => {
             <h4 className='text-secondary'>Featured Hereos</h4>
             </div>
         </div>
-       <HeroCardComponent heroes={heroes}/>
+        <div className='row'>
+         {heroes.map ((hero,index) => {
+            return (
+                <div className='col-sm-12 col-md-3' key={hero.id}>
+       <HeroCardComponent hero={hero} updateFeatured={updateFeatured}/>
+       </div>          
+            )
+
+       })}
+
+    </div>
         </div>
     )
 }
