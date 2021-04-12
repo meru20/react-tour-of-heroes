@@ -16,13 +16,17 @@ const DashboardPage = () => {
     
         // updated foundHero.featured to be opposite of its current value
         foundHero.featured = !foundHero.featured;
+        showAlert();
     
+        
+      const showAlert = () => {
         setAlert(true);
         setTimeout(() => {
           setAlert(false);
         }, 2000);
         console.log(foundHero);
       };
+     }
     
     return(
         <div id='DashboardPage'>

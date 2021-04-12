@@ -6,7 +6,7 @@ export const heroData = [
       alter_ego: 'Bruce Wayne',
       first_appearance: 'Detective Comics #27',
       characters: ['Bruce Wayne'],
-      featured: false,
+      featured: true,
       image_url:'https://www.trendsinternational.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/5/15191---justice-league---batman.jpg',
     },
     {
@@ -209,5 +209,6 @@ export const heroData = [
       featured: true,
       image_url:'https://i.pinimg.com/474x/c8/ff/ab/c8ffab5d52760f80ee36fe72432ca16d.jpg',
     },
+  
     
 ]

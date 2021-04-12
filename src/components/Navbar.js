@@ -23,6 +23,9 @@ const Navbar = () => {
             <Link className='nav-link' to='/heroes'>
               Heroes
             </Link>
+            <Link className='nav-link' to='/Archive'>
+              Archive
+            </Link>
             {/* <Link className='nav-link' to='/hero'>
               Hero
             </Link> */}
